@@ -9,7 +9,7 @@ from esphome.const import (
 from .. import truma_inetbox_ns, CONF_TRUMA_INETBOX_ID, TrumaINetBoxApp
 
 DEPENDENCIES = ["truma_inetbox"]
-CODEOWNERS = ["@Fabian-Schmidt"]
+CODEOWNERS = ["@hliebscher"]
 
 TrumaSensor = truma_inetbox_ns.class_(
     "TrumaBinarySensor", binary_sensor.BinarySensor, cg.Component)
