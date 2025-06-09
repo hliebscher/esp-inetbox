@@ -222,14 +222,14 @@ bool LinBusProtocol::lin_msg_diag_consecutive_(const u_int8_t *message, u_int8_t
 }
 
 void LinBusProtocol::lin_msg_diag_multi_() {
-  ESP_LOGD(TAG, "Multi package request  %s",
+  ESP_LOGD(TAG, "Multi Package request  %s",
            format_hex_pretty(this->multi_pdu_message_, this->multi_pdu_message_len_).c_str());
 
   u_int8_t answer_len = 0;
   // Ask handling class what to answer to this request.
   auto answer = this->lin_multiframe_recieved(this->multi_pdu_message_, this->multi_pdu_message_len_, &answer_len);
   if (answer_len > 0) {
-    ESP_LOGD(TAG, "Multi package response %s", format_hex_pretty(answer, answer_len).c_str());
+    ESP_LOGD(TAG, "Multi Package response %s", format_hex_pretty(answer, answer_len).c_str());
 
     std::array<u_int8_t, 8> response = this->lin_empty_response_;
     if (answer_len <= 6) {
