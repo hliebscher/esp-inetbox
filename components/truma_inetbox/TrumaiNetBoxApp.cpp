@@ -375,26 +375,26 @@ bool TrumaiNetBoxApp::has_update_to_submit_() {
   // If logging is necessary use logging queue of LinBusListener class.
   if (this->init_requested_ == 0) {
     this->init_requested_ = micros();
-    // ESP_LOGD(TAG, "Requesting initial data.");
+        ESP_LOGD(TAG, "Requesting initial data.");
     return true;
   } else if (this->init_recieved_ == 0) {
     auto init_wait_time = micros() - this->init_requested_;
     // it has been 5 seconds and i am still awaiting the init data.
     if (init_wait_time > 1000 * 1000 * 5) {
-      // ESP_LOGD(TAG, "Requesting initial data again.");
+      ESP_LOGD(TAG, "Requesting initial data again.");
       this->init_requested_ = micros();
       return true;
     }
   } else if (this->airconAuto_.has_update() || this->airconManual_.has_update() || this->clock_.has_update() ||
              this->heater_.has_update() || this->timer_.has_update()) {
     if (this->update_time_ == 0) {
-      // ESP_LOGD(TAG, "Notify CP Plus I got updates.");
+      ESP_LOGD(TAG, "Notify CP Plus I got updates.");
       this->update_time_ = micros();
       return true;
     }
     auto update_wait_time = micros() - this->update_time_;
     if (update_wait_time > 1000 * 1000 * 5) {
-      // ESP_LOGD(TAG, "Notify CP Plus again I still got updates.");
+      ESP_LOGD(TAG, "Notify CP Plus again I still got updates.");
       this->update_time_ = micros();
       return true;
     }
