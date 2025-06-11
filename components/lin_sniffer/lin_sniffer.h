@@ -102,6 +102,10 @@ class LINSnifferComponent : public Component, public uart::UARTDevice {
       int zone2 = decode_temp(data[1]);
       int outdoor = decode_temp(data[2]);
       ESP_LOGI("lin_decode", "Temp Z1: %d°C, Z2: %d°C, Outdoor: %d°C", zone1, zone2, outdoor);
+    } else if (!data.empty()) {
+      uint8_t sid = data[0];
+      std::string desc = describe_sid(sid);
+      ESP_LOGI("lin_sid", "SID 0x%02X detected: %s", sid, desc.c_str());
     }
   }
 
@@ -119,6 +123,15 @@ class LINSnifferComponent : public Component, public uart::UARTDevice {
       case 0x16: return "Alde Status";
       case 0x3C: return "Unknown Frame (3C)";
       default: return "Unknown";
+    }
+  }
+
+  std::string describe_sid(uint8_t sid) {
+    switch (sid) {
+      case 0xBA: return "Truma Steuerbefehl (Heizen, Wasser)";
+      case 0xBB: return "Truma Status-Anfrage";
+      case 0xFA: return "Truma Status-Antwort";
+      default: return "Unbekannter SID";
     }
   }
 
