@@ -1,7 +1,8 @@
-// ci_sniffer.cpp (vereinfachte UART-Version ohne RMT)
 #include "ci_sniffer.h"
 #include "esphome/core/log.h"
 
+#include "esphome/components/uart/uart.h"
+#include "esphome/components/text_sensor/text_sensor.h"
 namespace esphome {
 namespace ci_sniffer {
 
@@ -61,6 +62,7 @@ void CISnifferComponent::start_reading_() {
     this->start_reading_();
   });
 }
+ESP_LOGI("TEST", "Hallo von der neuen Version!");
 
 }  // namespace ci_sniffer
 }  // namespace esphome
