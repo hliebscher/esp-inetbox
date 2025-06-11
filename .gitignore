@@ -3,7 +3,8 @@
 # You can modify this file to suit your needs.
 /.esphome/
 /secrets.yaml
-
+.DS_Store
+# Compiled Python files
 **/__pycache__/**
 
 /local_*
