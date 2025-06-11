@@ -1,10 +1,9 @@
 from esphome.components import uart, text_sensor
 import esphome.codegen as cg
 import esphome.config_validation as cv
-from esphome.const import CONF_ID, CONF_UART_ID, CONF_FRAME_SENSOR
+from esphome.const import CONF_ID, CONF_UART_ID
 
-CODEOWNERS = ["@hliebscher"]
-DEPENDENCIES = ["uart"]
+CONF_FRAME_SENSOR = "frame_sensor"
 
 ci_sniffer_ns = cg.esphome_ns.namespace("ci_sniffer")
 CISnifferComponent = ci_sniffer_ns.class_("CISnifferComponent", cg.Component, uart.UARTDevice)
