@@ -62,7 +62,7 @@ void CISnifferComponent::start_reading_() {
     this->start_reading_();
   });
 }
-ESP_LOGI("TEST", "Hallo von der neuen Version!");
+
 
 }  // namespace ci_sniffer
 }  // namespace esphome
