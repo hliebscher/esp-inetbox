@@ -9,7 +9,7 @@ namespace ci_sniffer {
 static const char *const TAG = "ci_sniffer";
 
 void CISnifferComponent::setup() {
-  ESP_LOGI(TAG, "CI Sniffer gestartet (UART %d)", this->uart_->get_hw_serial_number());
+  ESP_LOGI(TAG, "CI Sniffer gestartet (UART %d)", this->get_uart()->get_hw_serial_number());
   this->set_timeout(100, [this]() {
     this->start_reading_();
   });
