@@ -46,6 +46,10 @@
 #define TRUMA_LOGE_ISR(_log_msg_)
 #endif
 
+#ifndef u_int8_t
+#define u_int8_t uint8_t
+#endif
+
 enum class QUEUE_LOG_MSG_TYPE {
   UNKNOWN,
   ERROR_LIN_ANSWER_CAN_WRITE_LIN_ANSWER,

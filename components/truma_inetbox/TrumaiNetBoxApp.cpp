@@ -127,6 +127,8 @@ bool TrumaiNetBoxApp::lin_read_field_by_identifier_(u_int8_t identifier, std::ar
 
 const u_int8_t *TrumaiNetBoxApp::lin_multiframe_recieved(const u_int8_t *message, const u_int8_t message_len,
                                                          u_int8_t *return_len) {
+  ESP_LOGVV(TAG, "Received LIN multi-frame (len=%u): %s", message_len, format_hex_pretty(message, message_len).c_str());
+  
   static u_int8_t response[48] = {};
   // Validate message prefix.
   if (message_len < truma_message_header.size()) {
