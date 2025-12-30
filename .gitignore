@@ -5,5 +5,5 @@
 /secrets.yaml
 
 **/__pycache__/**
-
+**womolin_*.yaml
 /local_*
