@@ -7,3 +7,7 @@
 **/__pycache__/**
 **womolin_*.yaml
 /local_*
+.DS_Store
+*.log
+*.tmp
+*.bak
